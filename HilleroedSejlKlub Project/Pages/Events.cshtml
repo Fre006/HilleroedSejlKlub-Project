@@ -1,4 +1,16 @@
 ﻿@page
 @model HilleroedSejlKlub_Project.Pages.EventsModel
+@using HilleroedSejlKlub_Project.Models
+
 @{
 }
+<h1>Events</h1>
+
+<ul>
+    @foreach (Event ev in Model.Events)
+    {
+        <li>
+            <strong>@ev.Name</strong> - @ev.Date.ToShortDateString()
+        </li>
+    }
+</ul>
