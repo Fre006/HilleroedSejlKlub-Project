@@ -1,4 +1,4 @@
-﻿namespace HilleroedSejlKlub_Project.wwwroot.lib.Event
+﻿namespace HilleroedSejlKlub_Project.Models
 {
     public class Event
     {

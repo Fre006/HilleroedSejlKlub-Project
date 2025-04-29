@@ -1,4 +1,7 @@
-﻿namespace HilleroedSejlKlub_Project.wwwroot.lib.EventService
+﻿using System.Collections.Generic;
+using HilleroedSejlKlub_Project.Models;
+
+namespace HilleroedSejlKlub_Project.Services
 {
     public class EventService
     {
@@ -25,4 +28,10 @@
                 }
             }
         }
+
+        public List<Event> GetAllEvents()
+        {
+            return events;
+        }
+    }
 }
