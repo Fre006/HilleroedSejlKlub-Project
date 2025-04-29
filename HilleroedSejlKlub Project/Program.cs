@@ -44,7 +44,7 @@ namespace HilleroedSejlKlub_Project
             Member medlem1 = new Member(1, "Frederick ");
             Member medlem2 = new Member(2, "Youssef ");
             Member medlem3 = new Member(3, "Omar ");
-            Member medlem4 = new Member(4, "Ahmed ");
+            Member medlem4 = new Member(4, "Ahmed  ");
 
             service.RegisterMemberToEvent(1, medlem1);
             service.RegisterMemberToEvent(1, medlem2);
