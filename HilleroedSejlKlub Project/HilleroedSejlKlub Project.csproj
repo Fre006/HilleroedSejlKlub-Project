@@ -7,4 +7,9 @@
     <RootNamespace>HilleroedSejlKlub_Project</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Service\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>
