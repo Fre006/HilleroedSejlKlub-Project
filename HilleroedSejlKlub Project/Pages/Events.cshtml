@@ -4,25 +4,13 @@
 
 <h2>Events</h2>
 
-@foreach (var evt in Model.Events)
-{
-        <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
-            <h3>@evt.Name</h3>
-            <p>Date: @evt.Date.ToShortDateString()</p>
-
-            <h4>Registered Members:</h4>
-            <ul>
-            @foreach (Member member in evt.RegisteredMembers)
-            {
-                        <li>@member.Name (ID: @member.Id)</li>
-            }
-            </ul>
-
-            <form method="post">
-                <input type="hidden" name="eventId" value="@evt.Id" />
-                <input type="number" name="MemberId" placeholder="Enter Member ID" required />
-                <button type="submit" formaction="?handler=Register">Register</button>
-                <button type="submit" formaction="?handler=Unregister">Unregister</button>
-            </form>
-        </div>
-}
+<ul>
+    @foreach (Event evt in Model.Events)
+    {
+        <li>
+            <strong>@evt.Name</strong> - @evt.Date.ToShortDateString()
+            <br />
+            <a asp-page="/EventDetails" asp-route-id="@evt.Id">View / Register</a>
+        </li>
+    }
+</ul>
