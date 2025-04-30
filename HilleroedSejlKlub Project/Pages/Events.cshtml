@@ -2,15 +2,15 @@
 @model HilleroedSejlKlub_Project.Pages.EventsModel
 @using HilleroedSejlKlub_Project.Models
 
-@{
-}
-<h1>Events</h1>
+<h2>Events</h2>
 
 <ul>
-    @foreach (Event ev in Model.Events)
+    @foreach (Event evt in Model.Events)
     {
         <li>
-            <a asp-page="/EventDetails" asp-route-id="@ev.Id">@ev.Name</a> - @ev.Date.ToShortDateString()
+            <strong>@evt.Name</strong> - @evt.Date.ToShortDateString()
+            <br />
+            <a asp-page="/EventDetails" asp-route-id="@evt.Id">View / Register</a>
         </li>
     }
 </ul>

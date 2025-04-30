@@ -1,83 +1,40 @@
-//using HilleroedSejlKlub_Project.Models;
-//using HilleroedSejlKlub_Project.Services;
-//using Microsoft.AspNetCore.Mvc.RazorPages;
-//using Microsoft.AspNetCore.Mvc;
-
-//public class EventDetailsModel : PageModel
-//{
-//    private readonly EventService _service;
-
-//    public Event SelectedEvent { get; set; }
-
-//    [BindProperty]
-//    public int MemberId { get; set; }
-
-//    public EventDetailsModel(EventService service)
-//    {
-//        _service = service;
-//    }
-
-//    public void OnGet(int id)
-//    {
-//        SelectedEvent = _service.GetAllEvents().FirstOrDefault(e => e.Id == id);
-//    }
-
-//    public IActionResult OnPostRegister(int id)
-//    {
-//        Member member = new Member(MemberId, $"Member {MemberId}");
-//        _service.RegisterMemberToEvent(id, member);
-//        return RedirectToPage(new { id = id });
-//    }
-
-//    public IActionResult OnPostUnregister(int id)
-//    {
-//        _service.UnregisterMemberFromEvent(id, MemberId);
-//        return RedirectToPage(new { id = id });
-//    }
-//}
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using HilleroedSejlKlub_Project.Models;
 using HilleroedSejlKlub_Project.Services;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HilleroedSejlKlub_Project.Pages
 {
     public class EventDetailsModel : PageModel
     {
-        private readonly EventService _service;
+        private readonly EventService _eventService;
 
-        public Event SelectedEvent { get; set; }
-
-        public EventDetailsModel(EventService service)
+        public EventDetailsModel(EventService eventService)
         {
-            _service = service;
+            _eventService = eventService;
         }
 
-        public IActionResult OnGet(int id)
-        {
-            SelectedEvent = _service.GetEventById(id);
-            if (SelectedEvent == null)
-            {
-                return NotFound();
-            }
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
 
-            return Page();
+        public Event? Event { get; set; }
+
+        public void OnGet()
+        {
+            Event = _eventService.GetEventById(Id);
         }
 
-        public IActionResult OnPostRegister(int id, int MemberId)
+        public IActionResult OnPostRegister(int eventId, int memberId, string memberName)
         {
-            Member member = new Member(MemberId, $"Member {MemberId}");
-            _service.RegisterMemberToEvent(id, member);
-
-            return RedirectToPage("/EventDetails", new { id = id });
+            var member = new Member(memberId, memberName);
+            _eventService.RegisterMemberToEvent(eventId, member);
+            return RedirectToPage(new { id = eventId });
         }
 
-        public IActionResult OnPostUnregister(int id, int MemberId)
+        public IActionResult OnPostUnregister(int eventId, int memberId)
         {
-            _service.UnregisterMemberFromEvent(id, MemberId);
-
-            return RedirectToPage("/EventDetails", new { id = id });
+            _eventService.UnregisterMemberFromEvent(eventId, memberId);
+            return RedirectToPage(new { id = eventId });
         }
     }
 }
