@@ -9,6 +9,10 @@ namespace HilleroedSejlKlub_Project.Pages
     {
         private readonly EventService _eventService;
         public List<Event> Events { get; set; }
+
+        [BindProperty]
+        public int MemberId { get; set; }
+
         public EventsModel(EventService eventService)
         {
             _eventService = eventService;
@@ -16,12 +20,20 @@ namespace HilleroedSejlKlub_Project.Pages
 
         public void OnGet()
         {
-            EventService service = new EventService();
+            Events = _eventService.GetAllEvents();
+        }
 
-            service.CreateEvent(new Event(1, "Informationsaften", new DateTime(2025, 4, 1)));
-            service.CreateEvent(new Event(2, "Arbejdsdag", new DateTime(2025, 5, 1)));
-            
-            Events = service.GetAllEvents();
+        public IActionResult OnPostRegister(int eventId)
+        {
+            Member member = new Member(MemberId, $"Member {MemberId}");
+            _eventService.RegisterMemberToEvent(eventId, member);
+            return RedirectToPage();
+        }
+
+        public IActionResult OnPostUnregister(int eventId)
+        {
+            _eventService.UnregisterMemberFromEvent(eventId, MemberId);
+            return RedirectToPage();
         }
     }
 }
