@@ -1,0 +1,20 @@
+﻿@page
+@using HilleroedSejlKlub_Project.Models
+@model HilleroedSejlKlub_Project.Pages.RegisterModel
+
+<h1>Register member for event</h1>
+
+<form method="post">
+    <label for="MemberId">Enter member ID:</label>
+    <input type="number" asp-for="MemberId" />
+
+    <label for="SelectedEventId">Select event:</label>
+    <select asp-for="SelectedEventId">
+        @foreach (Event ev in Model.Events)
+        {
+            <option value="@ev.Id">@ev.Name - @ev.Date.ToShortDateString()</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

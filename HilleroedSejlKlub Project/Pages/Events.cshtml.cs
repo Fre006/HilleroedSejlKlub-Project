@@ -15,7 +15,7 @@ namespace HilleroedSejlKlub_Project.Pages
 
             service.CreateEvent(new Event(1, "Informationsaften", new DateTime(2025, 4, 1)));
             service.CreateEvent(new Event(2, "Arbejdsdag", new DateTime(2025, 5, 1)));
-
+            
             Events = service.GetAllEvents();
         }
     }
