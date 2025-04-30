@@ -10,7 +10,7 @@
     @foreach (Event ev in Model.Events)
     {
         <li>
-            <strong>@ev.Name</strong> - @ev.Date.ToShortDateString()
+            <a asp-page="/EventDetails" asp-route-id="@ev.Id">@ev.Name</a> - @ev.Date.ToShortDateString()
         </li>
     }
 </ul>

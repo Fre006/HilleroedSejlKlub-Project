@@ -7,7 +7,12 @@ namespace HilleroedSejlKlub_Project.Pages
 {
     public class EventsModel : PageModel
     {
+        private readonly EventService _eventService;
         public List<Event> Events { get; set; }
+        public EventsModel(EventService eventService)
+        {
+            _eventService = eventService;
+        }
 
         public void OnGet()
         {

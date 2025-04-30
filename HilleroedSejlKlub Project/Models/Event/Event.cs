@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
-        public List<Member> RegisteredMembers { get; set; }
+        public List<Member> RegisteredMembers { get; set; } = new List<Member>();
 
         public Event(int id, string name, DateTime date)
         {
@@ -18,6 +18,11 @@
         public void RegisterMember(Member member)
         {
             RegisteredMembers.Add(member);
+        }
+
+        internal void UnregisterMember(int memberId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

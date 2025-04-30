@@ -1,0 +1,21 @@
+﻿@page "{id:int}"
+@using HilleroedSejlKlub_Project.Models
+@model EventDetailsModel
+
+<h2>@Model.SelectedEvent.Name</h2>
+<p>Date: @Model.SelectedEvent.Date.ToShortDateString()</p>
+
+<h3>Registered Members</h3>
+<ul>
+    @foreach (Member member in Model.SelectedEvent.RegisteredMembers)
+    {
+        <li>@member.Name (ID: @member.Id)</li>
+    }
+</ul>
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.SelectedEvent.Id" />
+    <input type="number" name="MemberId" placeholder="Enter Member ID" required />
+    <button type="submit" asp-page-handler="Register">Register</button>
+    <button type="submit" asp-page-handler="Unregister">Unregister</button>
+</form>
