@@ -1,5 +1,5 @@
 using HilleroedSejlKlub_Project.Models;
-using HilleroedSejlKlub_Project.Services;
+using HilleroedSejlKlub_Project.Service;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 

@@ -72,6 +72,9 @@
 //    }
 //}
 
+using HilleroedSejlKlub_Project.Repository;
+using HilleroedSejlKlub_Project.Service;
+
 namespace HilleroedSejlKlub_Project
 {
     public class Program
@@ -83,6 +86,9 @@ namespace HilleroedSejlKlub_Project
             builder.Services.AddRazorPages();
 
             builder.Services.AddSingleton<EventService>();
+
+            builder.Services.AddSingleton<UserService>();
+            builder.Services.AddSingleton<IUserRepository>();
 
             var app = builder.Build();
 

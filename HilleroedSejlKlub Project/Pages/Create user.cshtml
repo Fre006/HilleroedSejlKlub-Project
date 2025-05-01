@@ -2,3 +2,20 @@
 @model HilleroedSejlKlub_Project.Pages.Create_userModel
 @{
 }
+<body>
+	<main>
+		<form>
+			<h1>hvad er dit navn?</h1>
+				<input type="text" name="navn" asp-for="User.Name" />
+			<h1>hvad er din alder?</h1>
+				<input type="text" name="Age" asp-for="User.Age" />
+			<h1>hvad er dit Medlems Nummer?</h1>
+				<input type="text" name="MemberNumber" asp-for="User.MemberNumber" />
+			<h1>hvad Password vil du have?</h1>
+				<input type="text" name="Password" asp-for="User.Password" />
+			<h1>Er du adminstrator?</h1>
+				<input type="checkbox" name="Adminstrator" asp-for="User.Admin" />
+			<input type="submit" value="Save" />
+		</form>
+	</main>
+</body>

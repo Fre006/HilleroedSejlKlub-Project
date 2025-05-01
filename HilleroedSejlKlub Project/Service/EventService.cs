@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HilleroedSejlKlub_Project.Services
+namespace HilleroedSejlKlub_Project.Service
 {
     public class EventService
     {
