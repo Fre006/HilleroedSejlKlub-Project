@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HilleroedSejlKlub_Project.Models;
-using HilleroedSejlKlub_Project.Services;
 using System.Collections.Generic;
+using HilleroedSejlKlub_Project.Service;
 
 namespace HilleroedSejlKlub_Project.Pages
 {
