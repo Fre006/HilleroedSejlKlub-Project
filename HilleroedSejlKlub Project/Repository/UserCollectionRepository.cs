@@ -7,7 +7,7 @@ namespace HilleroedSejlKlub_Project.Repository
         protected List<User> _users = new List<User>();
 
     //method for adding more users to the _user list containing all of the current members
-    public virtual void add(User user)
+    public virtual void Add(User user)
         {
             _users.Add(user);
         }
@@ -33,10 +33,12 @@ namespace HilleroedSejlKlub_Project.Repository
 
         //For some reason this is different from the other add function and i cannot see why.
         //but now it works... somehow? i'm gonna need to ask someone about this.
-        public void Add(User user)
-        {
-            throw new NotImplementedException();
-        }
+        //fandt ud af det. problemet var jeg havde glemt at sætte stort i den anden Add function. Derfor skulle den bruge en exception til at koden ikke gik i stykker fordi jeg refererede til det forkerte.
+        //classic blunder. im keeping it for posterity.
+    //    public void Add(User user)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
         public UserCollectionRepository()
         {

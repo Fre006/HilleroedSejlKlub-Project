@@ -10,6 +10,8 @@ namespace HilleroedSejlKlub_Project.Pages
     {
         private readonly EventService _service;
 
+
+
         public List<Event> Events { get; private set; }
 
         public RegisterModel(EventService service)

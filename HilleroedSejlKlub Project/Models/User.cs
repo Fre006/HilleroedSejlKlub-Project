@@ -10,10 +10,10 @@
         public int Age { get; set; }
         public bool Admin { get; private set; }
         
-        //Default constructor so the site doesn't break if there are argument lacking.
+        //Default constructor so the site doesn't break if there are arguments lacking.
         public User() { }
 
-        //Constructor we generally wanna use
+        //Constructor we generally wanna use when creating users
         public User(string name, string password, string memberNumber, int age, bool admin)
         {
             Name = name;
